@@ -2,11 +2,12 @@
 
 <ol>
 <li>Ada 2 jenis user yaitu Admin dan Anggota</li>
+<li>Setiap User Harus Melakukan Login Untuk Dapat Mengakses Website</li>
+<li>user harus terdaftar sebagai anggota untuk meminjam buku,namun perlu di acc oleh admin terlebih dahulu</li>
 <li>Satu user hanya dapat memiliki satu profile</li>
 <li>setiap user dapat mengubah profilenya masing"</li>
 <li>Setiap Buku dapat memiliki multiple kategori</li>
 <li>Judul buku dapat berjumlah lebih dari 1 (dapat dibedakan melalui kode buku)</li>
-<li>List buku dan kategori dapat dilihat tanpa harus login,namun user harus terdaftar sebagai anggota untuk meminjam buku</li>
 <li>Bisa melakukan pencaharian buku melalui judul buku atau kategori buku</li>
 <li>Admin bisa menambah,mengupdate,dan menghapus: data buku,kategori dan user</li>
 <li>Anggota dapat meminjam maksimal 3 buku</li>

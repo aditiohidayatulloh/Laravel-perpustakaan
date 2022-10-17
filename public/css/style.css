@@ -1,81 +1,114 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:sans-serif !important;
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
 }
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-padding-top: 5.5rem;
-    scroll-behavior: smooth;
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
 }
-body{
-    background-color: aliceblue !important;
-    max-height: 100vh !important;
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
 }
-.header{
-width: 100%;
-display: flex;
-justify-content: space-between;
-z-index: 1000;
- background-color: #6777EF;
+.header {
+  position:relative;
+  flex-direction: row;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
 }
-.header a{
-    text-decoration: none;
-    color:white;
-    font-size: 1.7rem;
-    padding: .5rem 1.5rem;
-    font-weight:600;
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
 }
-.brand{
-    font-size: 2rem;
+.inner-header {
+  height:80vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  padding-top: 5rem;
+  gap:2rem;
+  flex-direction: column;
 }
-.sidebar-brand-icon img{
-    width: 3rem;
-}
-.header a:hover{
-    text-decoration:none;
-}
-body > div.container-fluid{
-    display: flex;
-    width: 100%;
-    max-height: 100vh;
-    justify-content: center;
-}
-.content {
-    display: flex;
-    flex-direction: column;
-}
-.content {
-    margin-top: 15rem;
-}
-.content h1,.content h2{
-    font-size: 5rem;
-    color: #6777EF;
-}
-.auth {
-    margin-top: 3rem;
-    margin-left: 2rem;
-    display: flex;
-    justify-content:center;
-    gap: 2rem;
+.card{
+    z-index: 10000;
 }
 .auth a{
-    font-size: 2rem;
-    padding: .5rem 5rem;
+    padding: .5rem 2rem;
 }
-@media (max-width:1098px){
-    header {
-        padding: 1rem 2rem;
-    }
-    body > div.container-fluid{
-        display: flex;
-        flex-wrap: wrap;
-        height: 100vh;
-    }
-    .content{
-        margin-top: 3rem;;
-    }
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% {
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+
 

@@ -43,7 +43,7 @@ class BukuController extends Controller
             'penerbit' => 'required',
             'tahun_terbit'=>'required',
             'deskripsi'=> 'required',
-            'gambar' =>'nullable'
+            'gambar' =>'nullable|mimes:jpg,jpeg,png|max:2048'
         ],
         [
             'judul.required' => "judul tidak boleh kosong",
@@ -51,6 +51,8 @@ class BukuController extends Controller
             'penerbit.requiered' => "penerbit tidak boleh kosong",
             'tahun_terbit.required'=> "harap isi tahun terbit",
             'deskripsi.required' => "deskripsi tidak boleh kosong",
+            'gambar.mimes' => "Gambar Harus Berupa jpg,jpeg,atau png",
+            'gambar.max' => "ukuran gambar tidak boleh lebih dari 2048 MB"
         ]
         );
 
@@ -121,7 +123,7 @@ class BukuController extends Controller
             'penerbit' => 'required',
             'tahun_terbit'=>'required',
             'deskripsi'=> 'required',
-            'gambar' =>'nullable'
+            'gambar' =>'nullable|mimes:jpg,jpeg,png|max:2048'
         ],
         [
             'judul.required' => "judul tidak boleh kosong",
@@ -129,6 +131,8 @@ class BukuController extends Controller
             'penerbit.requiered' => "penerbit tidak boleh kosong",
             'tahun_terbit.required'=> "harap isi tahun terbit",
             'deskripsi.required' => "deskripsi tidak boleh kosong",
+            'gambar.mimes' => "Gambar Harus Berupa jpg,jpeg,atau png",
+            'gambar.max' => "ukuran gambar tidak boleh lebih dari 2048 MB"
         ]
         );
 

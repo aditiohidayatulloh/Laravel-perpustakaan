@@ -19,7 +19,7 @@
       <h6 class="m-0 font-weight-bold text-primary">Form Tambah Buku</h6>
     </div>
     <div class="card-body">
-      <form action="/buku" method="post"enctype="multipart/form-data">
+      <form action="/buku" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group mb-3">
             <label for="Judul"class="text-primary font-weight-bold"> Judul Buku</label>
@@ -68,8 +68,7 @@
 
         <div class="form-group">
             <div class="custom-file">
-              <input type="file" name="gambar" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">{{ old('gambar') }}</label>
+              <input type="file" name="gambar" id="gambar">
             </div>
           </div>
 

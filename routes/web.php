@@ -20,7 +20,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('layouts.welcome');
+    return view('auth.login');
 });
 
 Auth::routes();

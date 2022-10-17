@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="{{asset('/template/img/logo/logo.png')}}" rel="icon">
-  <title>RuangAdmin - Blank Page</title>
+  <link href="{{asset('/img/logo.png')}}" rel="icon">
+  <title>Sistem Informasi Perpustakaan</title>
   <link href="{{asset('/template/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('/template/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('/template/css/ruang-admin.min.css')}}" rel="stylesheet">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="{{route('logout')}}" class="btn btn-primary"
+                  <a href="{{route('logout')}}" class="btn btn-outline-danger"
                   onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
                      {{ __('Logout') }}

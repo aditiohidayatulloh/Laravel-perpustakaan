@@ -31,8 +31,10 @@
 @endpush
 
 @section('content')
-
+@if (Auth::user()->isAdmin==1)
 <a href="/kategori/create" class="btn btn-info mb-3">Tambah Kategori</a>
+
+@endif
 
 <div class="col-lg-12">
     <div class="card mb-4">
@@ -89,7 +91,7 @@
                     @endif
 
                     @if(Auth::user()->isAdmin==0)
-                    <a href="/kategori/{{ $item->id }}" class="btn-sm btn-info px-3 py-2">Detail</a>
+                    <a href="/kategori/{{ $item->id }}" class="btn-sm btn-info px-3 py-2" style="text-decoration: none;color:white">Detail</a>
                     @endif
 
                     </form>

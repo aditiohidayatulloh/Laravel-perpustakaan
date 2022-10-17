@@ -22,5 +22,5 @@
         @endif
     </div>
 
-<h4 class="serupa m-3 text-primary" style="font-weight: bold;">Buku Terkait Kategori :</h4>
+<h4 class="m-3 text-primary" style="font-weight: bold;">Buku Terkait Kategori :</h4>
 @endsection
