@@ -31,7 +31,7 @@ p {
   vertical-align: middle;
 }
 .inner-header {
-  height:80vh;
+  max-height:120vh;
   width:100%;
   margin: 0;
   padding: 0;

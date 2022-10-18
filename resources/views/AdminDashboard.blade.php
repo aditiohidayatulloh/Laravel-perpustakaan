@@ -41,7 +41,7 @@
                     <div class="col mr-2">
                       <div class="text-sm font-weight-bold text-uppercase mb-1 text-light">Jumlah Buku</div>
                       <div class="text-sm text-light h5 mb-0 font-weight-bold">{{ $buku }}</div>
-                      <div class="button mt-2"><a href="#" class="text-light">Lihat</a></div>
+                      <div class="button mt-2"><a href="/buku" class="text-light">Lihat</a></div>
                     </div>
                     <div class="col-auto">
                       <i class="fa-solid fa-book fa-3x text-light"></i>
@@ -75,7 +75,7 @@
                     <div class="col mr-2">
                       <div class="text-sm text-light font-weight-bold text-uppercase mb-1">Anggota</div>
                       <div class="h5 mb-0 mr-3 font-weight-bold text-light">{{ $user }}</div>
-                      <div class="button mt-2"><a href="#" class="text-light">Lihat</a></div>
+                      <div class="button mt-2"><a href="/anggota" class="text-light">Lihat</a></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-users fa-3x text-light"></i>

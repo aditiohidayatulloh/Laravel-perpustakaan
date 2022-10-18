@@ -6,6 +6,7 @@
 @if (Route::has('login'))
     <div class="auth">
         @auth
+            <h1>Welcome Back, {{auth()->user()->name}}</h1>
             <a href="{{ url('/home') }}" class="btn btn-primary">Home</a>
         @else
         <div class="row justify-content-center">

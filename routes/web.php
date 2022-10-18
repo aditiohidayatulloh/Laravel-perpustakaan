@@ -22,13 +22,15 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('auth.login');
 });
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
 
-Route::resource('kategori', KategoriController::class);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
-Route::resource('buku', BukuController::class);
+    Route::resource('kategori', KategoriController::class);
 
-Route::resource('anggota', AnggotaController::class);
+    Route::resource('buku', BukuController::class);
+
+    Route::resource('anggota', AnggotaController::class);
+});
