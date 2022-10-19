@@ -15,7 +15,7 @@ class Profile extends Model
     'prodi',
     'alamat',
     'noTelp',
-    'photo_profile',
+    'photoProfile',
     'users_id'
     ];
 

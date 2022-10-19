@@ -62,9 +62,9 @@
         </a>
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Tables</h6>
-            <a class="collapse-item" href="/anggota">Lihat User</a>
-            <a class="collapse-item" href="datatables.html">Tambah User</a>
+            <h6 class="collapse-header">Anggota</h6>
+            <a class="collapse-item" href="/anggota">Lihat Anggota</a>
+            <a class="collapse-item" href="/anggota/create">Tambah Anggota</a>
           </div>
         </div>
       </li>

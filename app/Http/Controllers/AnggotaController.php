@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 
 class AnggotaController extends Controller
 {
@@ -15,8 +17,8 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        $anggota = User::all()->where('isAdmin','0');
-        return view('anggota.tampil',['anggota'=>$anggota]);
+        $user = User::all()->where('isAdmin','0');
+        return view('anggota.tampil',['anggota'=>$user]);
     }
 
     /**
@@ -26,7 +28,8 @@ class AnggotaController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::all();
+        return view('anggota.tambah',['user'=>$user]);
     }
 
     /**
@@ -48,9 +51,9 @@ class AnggotaController extends Controller
      */
     public function show($id)
     {
-        $anggota = User::find($id);
-
-        return "Ini detail anggota";
+        $user = User::find($id);
+        $profile = Profile::where('users_id',$id)->first();
+        return view('anggota.detail',['user'=>$user,'profile'=>$profile]);
     }
 
     /**
@@ -61,7 +64,7 @@ class AnggotaController extends Controller
      */
     public function edit($id)
     {
-        $anggota = User::find($id);
+        $user = User::find($id);
 
         return "ini menu edit user";
     }

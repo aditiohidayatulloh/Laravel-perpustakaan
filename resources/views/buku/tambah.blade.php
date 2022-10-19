@@ -68,7 +68,7 @@
 
         <div class="form-group">
             <div class="custom-file">
-              <input type="file" name="gambar" id="gambar">
+              <input type="file" name="gambar" id="gambar" value="{{ old('gambar') }}">
             </div>
           </div>
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
 
@@ -33,4 +34,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('buku', BukuController::class);
 
     Route::resource('anggota', AnggotaController::class);
+
+    Route::resource('profile', ProfileController::class)->only('index','update','edit');
 });
