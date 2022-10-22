@@ -12,10 +12,15 @@
     <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h4 class="m-0 font-weight-bold text-primary">Profile</h4>
-          </div>
+        </div>
         <div class="row">
             <div class="col-2 ml-5 mr-5 my-4">
-                <img src="{{ asset('template/img/boy.png') }}" style="width:100px;height:100px;border-radius:50px">
+                @if ($profile->photoProfile != null)
+                    <img src="{{ asset('/images/photoProfile/' . $profile->photoProfile) }}"
+                        style="width:150px;height:150px;border-radius:100px">
+                @else
+                    <img src="{{ asset('template/img/boy.png') }}" style="width:100px;height:100px;border-radius:50px">
+                @endif
             </div>
             <div class="col-4">
                 <div class="form-group mb-3">
@@ -46,7 +51,7 @@
             </div>
         </div>
         <div class="edit d-flex justify-content-end my-4 mx-4">
-            <a href="/profile/{{$profile->id}}/edit" class="btn btn-primary px-5">Edit Profile</a>
+            <a href="/profile/{{ $profile->id }}/edit" class="btn btn-primary px-5">Edit Profile</a>
         </div>
     </div>
 @endsection

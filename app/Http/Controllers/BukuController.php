@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use App\Models\Buku;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use File;
+use Illuminate\Support\Facades\Auth;
+
 class BukuController extends Controller
 {
     /**
@@ -15,8 +18,10 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $buku = Buku::all();
-        return view('buku.tampil',['buku'=>$buku]);
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id', $iduser)->first();
+        $buku = Buku::paginate(6);
+        return view('buku.tampil', ['buku' => $buku, 'profile' => $profile]);
     }
 
     /**
@@ -26,7 +31,10 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('buku.tambah');
+        $buku = Buku::all();
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id', $iduser)->first();
+        return view('buku.tambah', ['buku' => $buku, 'profile' => $profile]);
     }
 
     /**
@@ -37,47 +45,47 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'judul' => 'required',
-            'pengarang'=> 'required',
-            'penerbit' => 'required',
-            'tahun_terbit'=>'required',
-            'deskripsi'=> 'required',
-            'gambar' =>'nullable|mimes:jpg,jpeg,png|max:2048'
-        ],
-        [
-            'judul.required' => "judul tidak boleh kosong",
-            'pengarang.required' => "pengarang tidak boleh kosong",
-            'penerbit.requiered' => "penerbit tidak boleh kosong",
-            'tahun_terbit.required'=> "harap isi tahun terbit",
-            'deskripsi.required' => "deskripsi tidak boleh kosong",
-            'gambar.mimes' => "Gambar Harus Berupa jpg,jpeg,atau png",
-            'gambar.max' => "ukuran gambar tidak boleh lebih dari 2048 MB"
-        ]
+        $request->validate(
+            [
+                'judul' => 'required',
+                'pengarang' => 'required',
+                'penerbit' => 'required',
+                'tahun_terbit' => 'required',
+                'deskripsi' => 'required',
+                'gambar' => 'nullable|mimes:jpg,jpeg,png|max:2048',
+            ],
+            [
+                'judul.required' => 'judul tidak boleh kosong',
+                'pengarang.required' => 'pengarang tidak boleh kosong',
+                'penerbit.requiered' => 'penerbit tidak boleh kosong',
+                'tahun_terbit.required' => 'harap isi tahun terbit',
+                'deskripsi.required' => 'deskripsi tidak boleh kosong',
+                'gambar.mimes' => 'Gambar Harus Berupa jpg,jpeg,atau png',
+                'gambar.max' => 'ukuran gambar tidak boleh lebih dari 2048 MB',
+            ],
         );
 
-        if($request->hasFile('gambar')){
-            $nama_gambar = time().'.'.$request->gambar->extension();
-            $request->gambar->move(public_path('images'),$nama_gambar);
+        if ($request->hasFile('gambar')) {
+            $nama_gambar = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('images'), $nama_gambar);
 
-            $buku = new Buku;
+            $buku = new Buku();
             $buku->judul = $request->judul;
-            $buku->pengarang =$request->pengarang;
+            $buku->pengarang = $request->pengarang;
             $buku->penerbit = $request->penerbit;
-            $buku->tahun_terbit =$request->tahun_terbit;
+            $buku->tahun_terbit = $request->tahun_terbit;
             $buku->deskripsi = $request->deskripsi;
-            $buku->gambar=$nama_gambar;
+            $buku->gambar = $nama_gambar;
             $buku->save();
+        } else {
+            $buku = new Buku();
+            $buku->judul = $request->judul;
+            $buku->pengarang = $request->pengarang;
+            $buku->penerbit = $request->penerbit;
+            $buku->tahun_terbit = $request->tahun_terbit;
+            $buku->deskripsi = $request->deskripsi;
 
-        }else{
-        $buku = new Buku;
-        $buku->judul = $request->judul;
-        $buku->pengarang =$request->pengarang;
-        $buku->penerbit = $request->penerbit;
-        $buku->tahun_terbit =$request->tahun_terbit;
-        $buku->deskripsi = $request->deskripsi;
-
-        $buku ->save();
+            $buku->save();
         }
         return redirect('/buku');
     }
@@ -91,7 +99,9 @@ class BukuController extends Controller
     public function show($id)
     {
         $buku = Buku::find($id);
-        return view('buku.detail',['buku'=>$buku]);
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id', $iduser)->first();
+        return view('buku.detail', ['buku' => $buku, 'profile' => $profile]);
     }
 
     /**
@@ -102,8 +112,10 @@ class BukuController extends Controller
      */
     public function edit($id)
     {
-        $buku =Buku::find($id);
-        return view('buku.edit',['buku'=>$buku]);
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id', $iduser)->first();
+        $buku = Buku::find($id);
+        return view('buku.edit', ['buku' => $buku, 'profile' => $profile]);
     }
 
     /**
@@ -117,47 +129,47 @@ class BukuController extends Controller
     {
         $buku = Buku::find($id);
 
-        $request->validate([
-            'judul' => 'required',
-            'pengarang'=> 'required',
-            'penerbit' => 'required',
-            'tahun_terbit'=>'required',
-            'deskripsi'=> 'required',
-            'gambar' =>'nullable|mimes:jpg,jpeg,png|max:2048'
-        ],
-        [
-            'judul.required' => "judul tidak boleh kosong",
-            'pengarang.required' => "pengarang tidak boleh kosong",
-            'penerbit.requiered' => "penerbit tidak boleh kosong",
-            'tahun_terbit.required'=> "harap isi tahun terbit",
-            'deskripsi.required' => "deskripsi tidak boleh kosong",
-            'gambar.mimes' => "Gambar Harus Berupa jpg,jpeg,atau png",
-            'gambar.max' => "ukuran gambar tidak boleh lebih dari 2048 MB"
-        ]
+        $request->validate(
+            [
+                'judul' => 'required',
+                'pengarang' => 'required',
+                'penerbit' => 'required',
+                'tahun_terbit' => 'required',
+                'deskripsi' => 'required',
+                'gambar' => 'nullable|mimes:jpg,jpeg,png|max:2048',
+            ],
+            [
+                'judul.required' => 'judul tidak boleh kosong',
+                'pengarang.required' => 'pengarang tidak boleh kosong',
+                'penerbit.requiered' => 'penerbit tidak boleh kosong',
+                'tahun_terbit.required' => 'harap isi tahun terbit',
+                'deskripsi.required' => 'deskripsi tidak boleh kosong',
+                'gambar.mimes' => 'Gambar Harus Berupa jpg,jpeg,atau png',
+                'gambar.max' => 'ukuran gambar tidak boleh lebih dari 2048 MB',
+            ],
         );
 
-        if($request->has('gambar')){
-            $path='images/';
-            File::delete($path.$buku->gambar);
+        if ($request->has('gambar')) {
+            $path = 'images/';
+            File::delete($path . $buku->gambar);
 
-            $nama_gambar = time().'.'.$request->gambar->extension();
+            $nama_gambar = time() . '.' . $request->gambar->extension();
 
-            $request->gambar->move(public_path('images'),$nama_gambar);
+            $request->gambar->move(public_path('images'), $nama_gambar);
 
-            $buku->gambar =$nama_gambar;
+            $buku->gambar = $nama_gambar;
 
             $buku->save();
         }
-        $buku->judul =$request->judul;
-        $buku->pengarang=$request->pengarang;
-        $buku->penerbit =$request->penerbit;
-        $buku->tahun_terbit =$request->tahun_terbit;
-        $buku->deskripsi =$request->deskripsi;
+        $buku->judul = $request->judul;
+        $buku->pengarang = $request->pengarang;
+        $buku->penerbit = $request->penerbit;
+        $buku->tahun_terbit = $request->tahun_terbit;
+        $buku->deskripsi = $request->deskripsi;
 
         $buku->save();
 
         return redirect('/buku');
-
     }
 
     /**

@@ -14,13 +14,16 @@
 
 @section('content')
     <div class="card">
-        <h3 class="judul m-3 text-primary" style="font-weight:bold;">{{$kategori->nama}}</h3>
-        @if($kategori->deskripsi !=null)
-        <p class="deskripsi m-3">{{ $kategori->deskripsi }}</p>
+        <h3 class="judul m-3 text-primary" style="font-weight:bold;">{{ $kategori->nama }}</h3>
+        @if ($kategori->deskripsi != null)
+            <p class="deskripsi m-3">{{ $kategori->deskripsi }}</p>
         @else
-        <p class="deskripsi m-3">Tidak Ada Deskripsi</p>
+            <p class="deskripsi m-3">Tidak Ada Deskripsi</p>
         @endif
+        <div class="d-flex justify-content-end">
+            <a href="/kategori" class="btn btn-info mx-3 my-3">Kembali</a>
+        </div>
     </div>
 
-<h4 class="m-3 text-primary" style="font-weight: bold;">Buku Terkait Kategori :</h4>
+    <h4 class="m-3 text-primary" style="font-weight: bold;">Buku Terkait Kategori :</h4>
 @endsection

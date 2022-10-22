@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Kategori;
+use Illuminate\Support\Facades\Auth;
 
 class KategoriController extends Controller
 {
@@ -15,8 +17,10 @@ class KategoriController extends Controller
      */
     public function index()
     {
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id',$iduser)->first();
         $kategori = Kategori::all();
-        return view('kategori.tampil',['kategori'=>$kategori]);
+        return view('kategori.tampil',['kategori'=>$kategori,'profile'=>$profile]);
     }
 
     /**
@@ -26,8 +30,10 @@ class KategoriController extends Controller
      */
     public function create()
     {
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id',$iduser)->first();
         $kategori = Kategori::all();
-        return view('Kategori.tambah',['kategori' =>$kategori]);
+        return view('Kategori.tambah',['kategori' =>$kategori,'profile'=>$profile]);
     }
 
     /**
@@ -64,8 +70,10 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id',$iduser)->first();
         $kategori= Kategori::find($id);
-        return view('kategori.detail',['kategori'=>$kategori]);
+        return view('kategori.detail',['kategori'=>$kategori,'profile'=>$profile]);
     }
 
     /**
@@ -76,8 +84,10 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
+        $iduser = Auth::id();
+        $profile = Profile::where('users_id',$iduser)->first();
         $kategori = Kategori::find($id);
-        return view('kategori.edit',['kategori'=>$kategori]);
+        return view('kategori.edit',['kategori'=>$kategori,'profile'=>$profile]);
     }
 
     /**

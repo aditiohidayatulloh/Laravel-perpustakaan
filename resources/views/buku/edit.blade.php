@@ -70,16 +70,20 @@
                 @enderror
 
                 <div class="form-group">
+                    <label for="photoProfile" class="text-md text-primary font-weight-bold">Tambah Sampul Buku</label>
                     <div class="custom-file">
-                        <input type="file" name="gambar" id="gambar" value="{{ old('gambar') }}">{{ $buku->gambar }}
+                        <input type="file" name="gambar" id="gambar"
+                            value="{{ old('gambar') }}">{{ old('gambar') }}
                     </div>
                 </div>
 
                 @error('gambar')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="d-flex justify-content-end">
+                    <a href="/buku" class="btn btn-danger mx-2">Kembali</a>
+                    <button type="submit" class="btn btn-primary px-3">Simpan</button>
+                </div>
             </form>
         </div>
     </div>
