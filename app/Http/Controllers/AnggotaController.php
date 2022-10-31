@@ -7,7 +7,9 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
+use RealRashid\SweetAlert\Facades\Alert;
+use Symfony\Component\HttpFoundation\File\File;
+use Illuminate\Support\Facades\Hash;
 
 class AnggotaController extends Controller
 {
@@ -45,7 +47,44 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'npm'=> 'required|unique:profile',
+            'prodi'=> 'required',
+            'alamat'=> 'required',
+            'noTelp'=> 'required',
+            'email'=>'required|unique:users',
+            'password'=>'required|min:8',
+        ],
+        [
+            'name.required'=>"Nama tidak boleh kosong",
+            'npm.required'=>"Nomor Induk tidak boleh kosong",
+            'npm.unique'=>"NPM Telah Digunakan",
+            'prodi.required'=>"Prodi tidak boleh kosong",
+            'alamat.required'=>"Alamat tidak boleh kosong",
+            'noTelp.required'=>"Nomor Telepon tidak boleh kosong",
+            'email.required'=>"Email tidak boleh kosong",
+            'email.unique'=>"Email Telah Digunakan",
+            'password.required'=>"Password Tidak boleh kosong",
+            'password.min'=>"Password tidak boleh kurang dari 8 karakter"
+        ]);
+
+        $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = hash::make($request['password']);
+            $user->save();
+
+        $profile = new Profile();
+            $profile->npm = $request->npm;
+            $profile->prodi = $request->prodi;
+            $profile->alamat = $request->alamat;
+            $profile->noTelp = $request->noTelp;
+            $profile->users_id = $user->id;
+            $profile->save();
+
+        Alert::success('Success', 'Berhasil Menambah Anggota');
+        return redirect('/anggota');
     }
 
     /**
@@ -83,7 +122,50 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'npm'=> 'required',
+            'prodi'=> 'required',
+            'alamat'=> 'required',
+            'noTelp'=> 'required',
+            'photoProfile'=> 'nullable|mimes:jpg,jpeg,png|max:2048'
+        ],
+        [
+            'name.required'=>"Nama tidak boleh kosong",
+            'npm.required'=>"Nomor Induk tidak boleh kosong",
+            'prodi.required'=>"Prodi tidak boleh kosong",
+            'alamat.required'=>"Alamat tidak boleh kosong",
+            'noTelp.required'=>"Nomor Telepon tidak boleh kosong",
+            'photoProfile.mimes' =>"Foto Profile Harus Berupa jpg,jpeg,atau png",
+            'photoProfile.max' => "ukuran gambar tidak boleh lebih dari 2048 MB"
+        ]);
+        $user = User::find($id);
+        $profile = Profile::find($id);
+
+        if($request->has('photoProfile')){
+         $path='images/photoProifle';
+
+         File::delete($path.$profile->photoProfile);
+
+         $namaGambar = time().'.'.$request->photoProfile->extension();
+
+         $request->photoProfile->move(public_path('images/photoProfile'),$namaGambar);
+
+         $profile->photoProfile =$namaGambar;
+
+         $profile->save();
+        }
+        $user->name = $request->name;
+        $profile->npm = $request->npm;
+        $profile->prodi = $request->prodi;
+        $profile->alamat = $request->alamat;
+        $profile->noTelp = $request->noTelp;
+
+        $profile->save();
+        $user->save();
+
+        Alert::success('Success', 'Berhasil Mengubah Profile');
+        return redirect('/anggota');
     }
 
     /**
@@ -94,6 +176,11 @@ class AnggotaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+
+        Alert::success('Berhasil', 'Berhasil Mengapus Anggota');
+        return redirect('anggota');
     }
 }

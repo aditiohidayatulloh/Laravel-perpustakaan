@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use File;
 use App\Models\Buku;
 use App\Models\Profile;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -16,11 +17,16 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request->has('search')){
+            $buku = Buku::where('judul','like','%'.$request->search.'%')->paginate(6);
+        }
+        else{
+            $buku = Buku::paginate(6);
+        }
         $iduser = Auth::id();
         $profile = Profile::where('users_id', $iduser)->first();
-        $buku = Buku::paginate(6);
         return view('buku.tampil', ['buku' => $buku, 'profile' => $profile]);
     }
 
@@ -87,6 +93,8 @@ class BukuController extends Controller
 
             $buku->save();
         }
+
+        Alert::success('Berhasil', 'Berhasil Menambakan Data Buku');
         return redirect('/buku');
     }
 
@@ -169,6 +177,7 @@ class BukuController extends Controller
 
         $buku->save();
 
+        Alert::success('Berhasil', 'Update Berhasil');
         return redirect('/buku');
     }
 
@@ -185,5 +194,6 @@ class BukuController extends Controller
         $buku->delete();
 
         return redirect('buku');
+        Alert::success('Berhasil', 'Buku Berhasil Terhapus');
     }
 }

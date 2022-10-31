@@ -58,14 +58,14 @@
 
                                     @if (Auth::user()->isAdmin == 1)
                                         <button class="btn btn-info"><a href="/kategori/{{ $item->id }}"
-                                                style="text-decoration: none; color:white;">Detail</a></button>
+                                                style="text-decoration: none; color:white;"><i class="fa-solid fa-circle-info"></i></a></button>
                                         <button class="btn btn-warning"><a href="/kategori/{{ $item->id }}/edit"
-                                                style="text-decoration: none;color:white">Edit</a></button>
+                                                style="text-decoration: none;color:white"><i class="fa-solid fa-pen-to-square"></i></a></button>
                                         <button class="btn btn-danger"><a data-toggle="modal"
-                                                data-target="#DeleteModal">Delete</a></button>
+                                                data-target="#DeleteModal{{ $item->id }}"><i class="fa-solid fa-trash"></i></a></button>
 
                                         <!--Delete Modal -->
-                                        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="DeleteModal{{ $item->id }}" role="dialog"
                                             aria-labelledby="ModalLabelDelete" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -82,11 +82,11 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-outline-primary"
                                                             data-dismiss="modal">Cancel</button>
-                                                        <form action="/kategori/{{ $item->id }}" method="post">
+                                                        <form action="/kategori/{{ $item->id }}" method="post" id="DeleteModal">
                                                             @csrf
                                                             @method('delete')
                                                             <input type="submit"
-                                                                value="delete"class="btn btn-outline-danger">
+                                                             value="delete" class="btn btn-outline-danger">
                                                         </form>
                                                     </div>
                                                 </div>

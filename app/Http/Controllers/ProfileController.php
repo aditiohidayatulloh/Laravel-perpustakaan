@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
 use File;
 class ProfileController extends Controller
 {
@@ -66,6 +68,7 @@ class ProfileController extends Controller
         $profile->save();
         $user->save();
 
+        Alert::success('Success', 'Berhasil Mengubah Profile');
         return redirect('/profile');
     }
 

@@ -25,7 +25,7 @@
         <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Buku</h6>
-                <a class="collapse-item" href="/buku">Lihat Buku</a>
+                <a class="collapse-item" href="/buku">Lihat Semua Buku</a>
 
                 @if (Auth::user()->isAdmin == 1)
                     <a class="collapse-item" href="/buku/create">Tambah Buku</a>

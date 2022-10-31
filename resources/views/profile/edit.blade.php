@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <form action="/profile/{{ $profile->id }}" method="post"enctype="multipart/form-data">
+    <form action="/profile/{{$profile->id}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
 
@@ -56,7 +56,7 @@
 
             <div class="form-group mx-4 my-2">
                 <label for="nama" class="text-md text-primary font-weight-bold">Nomor Telepon</label>
-                <input type="text" name="noTelp" class="form-control" value="{{ old('alamat', $profile->noTelp) }}">
+                <input type="text" name="noTelp" class="form-control" value="{{ old('noTelp', $profile->noTelp) }}">
             </div>
 
             @error('noTelp')

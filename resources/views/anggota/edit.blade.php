@@ -13,14 +13,14 @@
 @endsection
 
 @section('content')
-    <form action="/profile/{{ $profile->id }}" method="post" enctype="multipart/form-data">
+    <form action="/anggota/{{ $user->id }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
 
         <div class="card pb-5">
             <div class="form-group mx-4 my-2">
                 <label for="nama" class="text-md text-primary font-weight-bold mt-2">Nama Lengkap</label>
-                <input type="text" class="form-control" value="{{ old('name', $user->name) }}">
+                <input type="text" name="name" class="form-control" value="{{ old('name', $user->name) }}">
             </div>
 
             @error('name')
@@ -29,7 +29,7 @@
 
             <div class="form-group mx-4 my-2">
                 <label for="nama" class="text-md text-primary font-weight-bold">Nomor Induk Masiswa</label>
-                <input type="text" class="form-control" value="{{ old('npm', $profile->npm) }}">
+                <input type="text" name="npm" class="form-control" value="{{ old('npm', $profile->npm) }}">
             </div>
 
             @error('npm')
@@ -38,7 +38,7 @@
 
             <div class="form-group mx-4 my-2">
                 <label for="nama" class="text-md text-primary font-weight-bold">Program Studi</label>
-                <input type="text" class="form-control" value="{{ old('prodi', $profile->prodi) }}">
+                <input type="text"  name= "prodi" class="form-control" value="{{ old('prodi', $profile->prodi) }}">
             </div>
 
             @error('prodi')
@@ -47,7 +47,7 @@
 
             <div class="form-group mx-4 my-2">
                 <label for="nama" class="text-md text-primary font-weight-bold">Alamat</label>
-                <input type="text" class="form-control" value="{{ old('alamat', $profile->alamat) }}">
+                <input type="text" name ="alamat" class="form-control" value="{{ old('alamat', $profile->alamat) }}">
             </div>
 
             @error('alamat')
@@ -56,7 +56,7 @@
 
             <div class="form-group mx-4 my-2">
                 <label for="nama" class="text-md text-primary font-weight-bold">Nomor Telepon</label>
-                <input type="text" class="form-control" value="{{ old('noTelp', $profile->noTelp) }}">
+                <input type="text" name="noTelp" class="form-control" value="{{ old('noTelp', $profile->noTelp) }}">
             </div>
 
             @error('noTelp')
@@ -66,9 +66,13 @@
             <div class="form-group mx-4 my-2">
                 <label for="gambar" class="text-md text-primary font-weight-bold">Tambah Photo Profile</label>
                 <div class="custom-file">
-                    <input type="file" value="{{ old('photoProfile', $profile->photoProfile) }}">
+                    <input type="file" name="photoProfile" value="{{ old('photoProfile', $profile->photoProfile) }}">
                 </div>
             </div>
+
+            @error('photoProfile')
+                <div class="alert-danger"> {{ $message }}</div>
+            @enderror
 
             <div class="button-save d-flex justify-content-end">
                 <a href="/anggota" class="btn btn-danger mt-4 px-3 py-1">Batal</a>

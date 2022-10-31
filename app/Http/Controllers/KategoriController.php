@@ -7,6 +7,7 @@ use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
@@ -59,6 +60,7 @@ class KategoriController extends Controller
 
         $kategori->save();
 
+        Alert::success('Berhasil', 'Berhasil Menambahkan Kategori');
         return redirect('/kategori');
     }
 
@@ -115,6 +117,7 @@ class KategoriController extends Controller
 
         $kategori->save();
 
+        Alert::success('Berhasil', 'Update Success');
         return redirect('/kategori');
     }
 
@@ -126,10 +129,11 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        $kategori = Kategori::find($id);
+        $kategori=Kategori::find($id);
 
         $kategori->delete();
 
-        return redirect('/kategori');
+
+        return redirect('kategori');
     }
 }

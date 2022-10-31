@@ -19,7 +19,12 @@
         </div>
         <div class="row d-flex" style="gap:3rem">
             <div class="col-2 ml-5 my-4">
+                @if ($profile->photoProfile !=null)
+                <img src="{{ asset('/images/photoProfile/' . $profile->photoProfile) }}"
+                        style="width:150px;height:150px;border-radius:100px">
+                @else
                 <img src="{{ asset('template/img/boy.png') }}" style="width:100px;height:100px;border-radius:50px">
+                @endif
             </div>
             <div class="col-4">
                 <div class="form-group mb-3">

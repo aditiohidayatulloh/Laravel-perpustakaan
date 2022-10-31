@@ -36,7 +36,7 @@
 
     <div class="col-lg-12">
         <div class="card mb-4">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
             </div>
             <div class="table-responsive p-3">
                 <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -44,6 +44,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Nama Anggota</th>
+                            <th scope="col">NPM</th>
                             <th scope="col">Email</th>
                             <th scope="col">Tombol Aksi</th>
                         </tr>
@@ -53,19 +54,20 @@
                             <tr>
                                 <th scope="row">{{ $key }}</th>
                                 <td>{{ $item->name }}</td>
+                                <td>{{ $item->profile->npm }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>
 
                                     @if (Auth::user()->isAdmin == 1)
                                         <button class="btn btn-info"><a href="/anggota/{{ $item->id }}"
-                                                style="text-decoration: none; color:white;">Detail</a></button>
+                                                style="text-decoration: none; color:white;"><i class="fa-solid fa-circle-info"></i></a></button>
                                         <button class="btn btn-warning"><a href="/anggota/{{ $item->id }}/edit"
-                                                style="text-decoration: none;color:white">Edit</a></button>
+                                                style="text-decoration: none;color:white"><i class="fa-solid fa-pen-to-square"></i></a></button>
                                         <button class="btn btn-danger"><a data-toggle="modal"
-                                                data-target="#DeleteModal">Delete</a></button>
+                                                data-target="#DeleteModal{{ $item->id }}"><i class="fa-solid fa-trash"></i></a></button>
 
                                         <!--Delete Modal -->
-                                        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="DeleteModal{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="ModalLabelDelete" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
