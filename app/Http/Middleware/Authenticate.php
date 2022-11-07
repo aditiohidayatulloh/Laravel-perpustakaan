@@ -16,7 +16,6 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-
             Alert::warning('Sesi Berakhir', 'Silahkan Login Ulang');
             return route('login');
         }

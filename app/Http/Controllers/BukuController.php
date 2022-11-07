@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use File;
 use App\Models\Buku;
 use App\Models\Profile;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BukuController extends Controller
 {
@@ -37,10 +38,11 @@ class BukuController extends Controller
      */
     public function create()
     {
+        $kategori = Kategori::all();
         $buku = Buku::all();
         $iduser = Auth::id();
         $profile = Profile::where('users_id', $iduser)->first();
-        return view('buku.tambah', ['buku' => $buku, 'profile' => $profile]);
+        return view('buku.tambah', ['buku' => $buku, 'profile' => $profile, 'kategori'=>$kategori]);
     }
 
     /**
@@ -54,6 +56,8 @@ class BukuController extends Controller
         $request->validate(
             [
                 'judul' => 'required',
+                'kode_buku'=>'required|unique:buku',
+                'kategori_buku'=>'required',
                 'pengarang' => 'required',
                 'penerbit' => 'required',
                 'tahun_terbit' => 'required',
@@ -62,6 +66,9 @@ class BukuController extends Controller
             ],
             [
                 'judul.required' => 'judul tidak boleh kosong',
+                'kode_buku.required'=> 'Kode Buku Tidak Boleh Kosong',
+                'kode_buku.unique'=> 'Kode Buku Telah Tersedia',
+                'kategori_buku.required' =>'Harap masukan kategori',
                 'pengarang.required' => 'pengarang tidak boleh kosong',
                 'penerbit.requiered' => 'penerbit tidak boleh kosong',
                 'tahun_terbit.required' => 'harap isi tahun terbit',
@@ -75,23 +82,19 @@ class BukuController extends Controller
             $nama_gambar = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('images'), $nama_gambar);
 
-            $buku = new Buku();
-            $buku->judul = $request->judul;
-            $buku->pengarang = $request->pengarang;
-            $buku->penerbit = $request->penerbit;
-            $buku->tahun_terbit = $request->tahun_terbit;
-            $buku->deskripsi = $request->deskripsi;
-            $buku->gambar = $nama_gambar;
-            $buku->save();
+            $buku = Buku::create([
+                'judul'=>$request['judul'],
+                'kode_buku'=>$request['kode_buku'],
+                'pengarang'=>$request['pengarang'],
+                'penerbit'=>$request['penerbit'],
+                'tahun_terbit'=>$request['tahun_terbit'],
+                'deskripsi'=>$request['deskripsi'],
+                'gambar'=>$nama_gambar
+            ]);
+            $buku->kategori_buku()->sync($request->kategori_buku);
         } else {
-            $buku = new Buku();
-            $buku->judul = $request->judul;
-            $buku->pengarang = $request->pengarang;
-            $buku->penerbit = $request->penerbit;
-            $buku->tahun_terbit = $request->tahun_terbit;
-            $buku->deskripsi = $request->deskripsi;
-
-            $buku->save();
+            $buku = Buku::create($request->all());
+            $buku->kategori_buku()->sync($request->kategori_buku);
         }
 
         Alert::success('Berhasil', 'Berhasil Menambakan Data Buku');
@@ -109,6 +112,7 @@ class BukuController extends Controller
         $buku = Buku::find($id);
         $iduser = Auth::id();
         $profile = Profile::where('users_id', $iduser)->first();
+
         return view('buku.detail', ['buku' => $buku, 'profile' => $profile]);
     }
 
@@ -121,9 +125,10 @@ class BukuController extends Controller
     public function edit($id)
     {
         $iduser = Auth::id();
+        $kategori = Kategori::all();
         $profile = Profile::where('users_id', $iduser)->first();
         $buku = Buku::find($id);
-        return view('buku.edit', ['buku' => $buku, 'profile' => $profile]);
+        return view('buku.edit', ['buku' => $buku, 'profile' => $profile,'kategori'=>$kategori]);
     }
 
     /**
@@ -136,7 +141,7 @@ class BukuController extends Controller
     public function update(Request $request, $id)
     {
         $buku = Buku::find($id);
-
+        $kategori= Kategori::find($id);
         $request->validate(
             [
                 'judul' => 'required',
@@ -167,6 +172,7 @@ class BukuController extends Controller
 
             $buku->gambar = $nama_gambar;
 
+            $buku->kategori_buku()->sync($request->kategori_buku);
             $buku->save();
         }
         $buku->judul = $request->judul;
@@ -174,7 +180,7 @@ class BukuController extends Controller
         $buku->penerbit = $request->penerbit;
         $buku->tahun_terbit = $request->tahun_terbit;
         $buku->deskripsi = $request->deskripsi;
-
+        $buku->kategori_buku()->sync($request->kategori_buku);
         $buku->save();
 
         Alert::success('Berhasil', 'Update Berhasil');

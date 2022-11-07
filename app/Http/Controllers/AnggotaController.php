@@ -69,19 +69,19 @@ class AnggotaController extends Controller
             'password.min'=>"Password tidak boleh kurang dari 8 karakter"
         ]);
 
-        $user = new User();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = hash::make($request['password']);
-            $user->save();
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
 
-        $profile = new Profile();
-            $profile->npm = $request->npm;
-            $profile->prodi = $request->prodi;
-            $profile->alamat = $request->alamat;
-            $profile->noTelp = $request->noTelp;
-            $profile->users_id = $user->id;
-            $profile->save();
+        Profile::create([
+            'npm'=>$request['npm'],
+            'prodi'=>$request['prodi'],
+            'alamat'=>$request['alamat'],
+            'noTelp'=>$request['noTelp'],
+            'users_id'=>$user->id,
+        ]);
 
         Alert::success('Success', 'Berhasil Menambah Anggota');
         return redirect('/anggota');

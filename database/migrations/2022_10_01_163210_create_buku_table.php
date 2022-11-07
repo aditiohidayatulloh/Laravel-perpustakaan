@@ -15,12 +15,14 @@ class CreateBukuTable extends Migration
     {
         Schema::create('buku', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_buku')->unique();
             $table->string('judul');
             $table->string('pengarang');
             $table->string('penerbit');
             $table->string('tahun_terbit');
             $table->text('deskripsi');
             $table->string('gambar')->nullable();
+            $table->string('status')->default('In Stock');
             $table->timestamps();
         });
     }

@@ -86,7 +86,26 @@ class DatabaseSeeder extends Seeder
         'nama'=>'Pelajaran',
         'deskripsi' => 'Kumpulan Buku materi pelajaran'
     ]);
+    Kategori::create([
+        'nama'=>'Rommance',
+    ]);
+    Kategori::create([
+        'nama'=>'Drama',
+    ]);
+    Kategori::create([
+        'nama'=>'Fiksi',
+    ]);
+    Kategori::create([
+        'nama'=>'Pemprograman',
+    ]);
+    Kategori::create([
+        'nama'=>'Science',
+    ]);
+    Kategori::create([
+        'nama'=>'Horror',
+    ]);
     Buku::create([
+        'kode_buku'=>'LSK-01',
         'Judul'=>'Laskar Pelangi',
         'Pengarang' => 'Andrea Hirata',
         'Penerbit' => 'Bentang Pustaka',
@@ -104,6 +123,7 @@ class DatabaseSeeder extends Seeder
         Mereka, Laskar Pelangi - nama yang diberikan Bu Muslimah akan kesenangan mereka terhadap pelangi - pun sempat mengharumkan nama sekolah dengan berbagai cara. Misalnya pembalasan dendam Mahar yang selalu dipojokkan kawan-kawannya karena kesenangannya pada okultisme yang membuahkan kemenangan manis pada karnaval 17 Agustus, dan kegeniusan luar biasa Lintang yang menantang dan mengalahkan Drs. Zulfikar, guru sekolah kaya PN yang berijazah dan terkenal, dan memenangkan lomba cerdas cermat. Laskar Pelangi mengarungi hari-hari menyenangkan, tertawa dan menangis bersama. Kisah sepuluh kawanan ini berakhir dengan kematian ayah Lintang yang memaksa Einstein cilik itu putus sekolah dengan sangat mengharukan, dan dilanjutkan dengan kejadian 12 tahun kemudian di mana Ikal yang berjuang di luar pulau Belitong kembali ke kampungnya. Kisah indah ini diringkas dengan kocak dan mengharukan oleh Andrea Hirata, kita bahkan bisa merasakan semangat masa kecil anggota sepuluh Laskar Pelangi ini.'
     ]);
     Buku::create([
+        'kode_buku'=>'HJN-01',
         'Judul'=>'Hujan',
         'Pengarang' => 'Tere Liye',
         'Penerbit' => 'Gramedia Pustaka',
@@ -114,6 +134,7 @@ class DatabaseSeeder extends Seeder
         Editor: agung'
         ]);
     Buku::create([
+        'kode_buku'=>'JNJ-01',
         'Judul'=>'Janji',
         'Pengarang' => 'Tere Liye',
         'Penerbit' => 'Tere Liye',
@@ -131,6 +152,7 @@ class DatabaseSeeder extends Seeder
         '
         ]);
     Buku::create([
+        'kode_buku' => 'AP-01',
         'Judul'=>'Algoritma dan Pemrograman',
         'Pengarang' => 'Lamhot Sitorus',
         'Penerbit' => 'Andi',
@@ -138,6 +160,7 @@ class DatabaseSeeder extends Seeder
         'deskripsi'=>'Buku ini dirancang untuk dapat digunakan oleh mahasiswa Program Studi Ilmu Komputer, Teknik Informatika, Sistem Informasi, Manajemen Informatika, Sistem Komputer atau bahkan mahasiswa program studi lain yang mempelajari Algoritma Pemrograman. Algoritma Pemrograman merupakan mata kuliah dasar bagi seorang mahasiswa untuk memulai masuk dalam dunia pemrograman. Algoritma Pemrograman akan memberikan konsep berpikir untuk menyelesaikan suatu masalah menjadi suatu program tanpa mempermasalahkan bahasa pemrograman sebagai tools yang akan digunakan untuk mengimplementasikannya. Suatu algoritma akan dapat diimplementasikan dalam bahasa pemrograman Pascal, C/C++, Visual C, Visual Basic, Java dan lain-lain.'
         ]);
     Buku::create([
+        'kode_buku'=> 'PBO-01',
         'Judul'=>'Pemrograman Berorientasi Objek',
         'Pengarang' => 'Syafei Karim',
         'Penerbit' => 'Tanesa',
@@ -145,6 +168,7 @@ class DatabaseSeeder extends Seeder
         'deskripsi'=>'Pemrograman Berorientasi Objek (PBO) adalah salah satu konsep pemrograman yang harus dipahami dan dimengerti oleh seorang programmer. PBO merupakan salah satu mata kuliah yang diajarkan pada mahasiswa khususnya di bidang komputer. Buku ini menjelaskan konsep PBO den`gan menggunakan bahasa pemrograman Java. Ruang lingkup pembahasannya meliputi dasar-dasar pemrograman java dan konsep dari PBO. Pada bagian pertama penulis menjelaskan dasar-dasar pemrograman dari bahasa pemrograman java. Mulai dari menggunakan tipe data, deklarasi variabel, penggunaan statement percabangan, penggunaan iterasi, hingga pendeklarasian array. Pada bagian kedua penulis menjelaskan konsep dasar dari PBO. Konsep-konsep tersebut terdiri dari class & object, enkapsulasi, inheritance, polimorfisme, hingga penggunaan kelas abstrak dan interface (sebatik) ( tanesa )'
         ]);
     Buku::create([
+        'kode_buku'=>'WPHP-01',
         'Judul'=>'Buku Sakti Pemrograman Web Seri PHP',
         'Pengarang' => 'Mundzir MF',
         'Penerbit' => 'Anak Hebat Indonesia',
@@ -153,6 +177,5 @@ class DatabaseSeeder extends Seeder
 
         PHP sebagai sekumpulan skrip atau bahasa program memiliki fungsi utama, yaitu mampu mengumpulkan dan mengevaluasi hasil survey atau bentuk apapun ke server  database dan pada tahap selanjutnya akan menciptakan efek beruntun.'
         ]);
-
     }
 }

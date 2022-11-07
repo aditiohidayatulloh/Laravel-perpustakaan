@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
 use App\Models\Profile;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
@@ -53,12 +54,7 @@ class KategoriController extends Controller
             'nama.min' => "Minimal 2 karakter"
         ]);
 
-        $kategori = new Kategori;
-
-        $kategori ->nama =$request->nama;
-        $kategori ->deskripsi= $request->deskripsi;
-
-        $kategori->save();
+        $kategori = Kategori::create($request->all());
 
         Alert::success('Berhasil', 'Berhasil Menambahkan Kategori');
         return redirect('/kategori');
@@ -75,7 +71,8 @@ class KategoriController extends Controller
         $iduser = Auth::id();
         $profile = Profile::where('users_id',$iduser)->first();
         $kategori= Kategori::find($id);
-        return view('kategori.detail',['kategori'=>$kategori,'profile'=>$profile]);
+        $buku = Buku::all();
+        return view('kategori.detail',['kategori'=>$kategori,'profile'=>$profile,'buku'=>$buku]);
     }
 
     /**
