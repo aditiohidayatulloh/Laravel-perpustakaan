@@ -2,14 +2,14 @@
 # Laravel 8 
 
 # Library yang digunakan :
-<ol>
+<ul>
 <li>Laravel UI</li>
 <li>FontAwesome</li>
 <li>realrashid/sweet-alert</li>
 <li>Template Ruang Admin</li>
 <li>Select2 untuk multiple select</li>
 <li>TinyMCE 5</li>
-</ol>
+</ul>
 
 # Fitur Requirements :
 <ol>
