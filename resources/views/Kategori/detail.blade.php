@@ -27,9 +27,6 @@
 
     <h4 class="m-3 text-primary" style="font-weight: bold;">Buku Terkait Kategori :</h4>
 
-    {{-- @foreach ($kategori->kategori_buku as $buku )
-    {{ $buku->judul }}
-    @endforeach --}}
     <div class="card container-fluid mb-3">
 
         <div class="row d-flex flex-wrap justify-content-center">
@@ -71,10 +68,10 @@
 
                             @if (Auth::user()->isAdmin == 0)
                                 <div class="button-area">
-                                    <a href="/buku/{{ $item->id }}" class="btn btn-info px-3 py-2"
-                                        style="text-decoration:none;">Detail</a>
-                                    <a href="#" class="btn btn-danger px-3 py-2" style="text-decoration:none;">Pinjam
-                                        Buku</a>
+                                    <button class="btn-sm btn-info px-2"><a href="/buku/{{ $item->id }}"
+                                            style="text-decoration: none; color:white;">Detail</a></button>
+                                    <button class="btn-sm btn-danger mx-1 px-3"><a href="/buku/{{ $item->id }}"
+                                        style="text-decoration: none; color:white;">Pinjam Buku</a></button>
                                 </div>
                             @endif
 

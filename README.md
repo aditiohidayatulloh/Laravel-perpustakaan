@@ -1,6 +1,17 @@
 # Sistem Informasi Perpustkaakaan
 # Laravel 8 
 
+# Library yang digunakan :
+<ol>
+<li>Laravel UI</li>
+<li>FontAwesome</li>
+<li>realrashid/sweet-alert</li>
+<li>Template Ruang Admin</li>
+<li>Select2 untuk multiple select</li>
+<li>TinyMCE 5</li>
+</ol>
+
+# Fitur Requirements :
 <ol>
 <li>Ada 2 jenis user yaitu Admin dan Anggota</li>
 <li>Setiap User Harus Melakukan Login Untuk Dapat Mengakses Website</li>
@@ -17,6 +28,6 @@
 <li>Admin dapat melihat log peminjaman buku</li>
 </ol>
 
-<p>ERD Sistem Informasi Perpustakaan :</p>
+# ERD Sistem Informasi Perpustakaan :
 <img src="/public/img/erd.png">
 

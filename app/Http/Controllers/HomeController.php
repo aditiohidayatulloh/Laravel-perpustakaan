@@ -39,7 +39,7 @@ class HomeController extends Controller
             return view('AdminDashboard',compact('kategori','buku','user','profile'));
             }
             else{
-            return view('AnggotaDashboard',compact('kategori','buku','profile'));
+            return view('AnggotaDashboard',compact('kategori','buku','profile','user'));
             }
     }
 }
