@@ -1,3 +1,6 @@
+# UTS Pemrograman Web Lanjut
+<h1>Aditio Hidayatulloh</h1>
+<h2>2113201044</h2>
 # Sistem Informasi Perpustkaakaan
 # Laravel 8 
 
@@ -35,8 +38,17 @@
 # Hasil :
 <ol>
 <li>Halaman Login :<img src="/public/images/hasil/Login.jpeg"></li>
-<li>Halaman Register</li>
-<li>Halaman Dashboard (Admin)</li>
+<li>Halaman Register :<img src="/public/images/hasil/resgister.jpeg"></li>
+<li>Halaman Dashboard (Admin) :<img src="/public/images/hasil/Dashboard(admin).jpeg"></li>
+<li>Halaman Lihat Buku (Admin) :
+<img src="/public/images/hasil/LihatBuku(admin).jpeg">
+<img src="/public/images/hasil/Dashboard(admin)2.jpeg">
+<img src="/public/images/hasil/Dashboard(admin)3.jpeg">
+</li>
+<li>Halaman Tambah Buku (Admin)</li>
+<li>Halaman Edit Buku (Admin)</li>
+<li>Hapus Buku (Admin)</li>
+<li></li>
 <li></li>
 
 </ol>
