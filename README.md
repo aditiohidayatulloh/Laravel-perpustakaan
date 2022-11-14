@@ -1,6 +1,6 @@
 # UTS Pemrograman Web Lanjut
-<h1>Aditio Hidayatulloh</h1>
-<h2>2113201044</h2>
+<p>Aditio Hidayatulloh</p>
+<p>2113201044</p>
 
 # Sistem Informasi Perpustkaakaan
 # Laravel 8 
@@ -55,6 +55,10 @@
 <img src="/public/images/hasil/editbuku2.jpeg">
 </li>
 <li>Hapus Buku (Admin) : <img src="/public/images/hasil/Hapus Buku.jpeg"></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 <li></li>
 <li></li>
 
