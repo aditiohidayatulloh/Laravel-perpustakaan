@@ -36,7 +36,7 @@
         <a href="/kategori/create" class="btn btn-info mb-3">Tambah Kategori</a>
     @endif
 
-    <div class="col-lg-12">
+    <div class="col-lg-auto">
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             </div>

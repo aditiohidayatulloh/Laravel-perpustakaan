@@ -21,7 +21,7 @@
 <li>setiap user dapat mengubah profilenya masing"</li>
 <li>Setiap Buku dapat memiliki multiple kategori</li>
 <li>Judul buku dapat berjumlah lebih dari 1 (dapat dibedakan melalui kode buku)</li>
-<li>Bisa melakukan pencaharian buku melalui judul buku atau kategori buku</li>
+<li>Bisa melakukan pencaharian buku melalui judul buku</li>
 <li>Admin bisa menambah,mengupdate,dan menghapus: data buku,kategori dan user</li>
 <li>Anggota dapat meminjam maksimal 3 buku</li>
 <li>Peminjaman maksimal 7 hari. Jika peminjaman lebih dari 7 hari maka akan dikenakan denda</li>
@@ -31,4 +31,13 @@
 
 # ERD Sistem Informasi Perpustakaan :
 <img src="/public/img/erd.png">
+
+# Hasil :
+<ol>
+<li>Halaman Login :<img src="/public/images/hasil/Login.jpeg"></li>
+<li>Halaman Register</li>
+<li>Halaman Dashboard (Admin)</li>
+<li></li>
+
+</ol>
 
