@@ -1,9 +1,10 @@
 # UTS Pemrograman Web Lanjut
-<p>Aditio Hidayatulloh</p>
-<p>2113201044</p>
+<h3>Aditio Hidayatulloh</h3>
+<h4>A2-2113201044</h4>
+<h4>Teknik Informatika Universitas Sangga Buana YPKP</h4>
 
-# Sistem Informasi Perpustkaakaan
-# Laravel 8 
+
+# Sistem Informasi Perpustkaakaan Menggunakan Laravel 8 
 
 # Library yang digunakan :
 <ul>
@@ -37,7 +38,7 @@
 <img src="/public/img/erd.png">
 
 # Hasil :
-<ol>
+<ul>
 <li>Halaman Login :<img src="/public/images/hasil/Login.jpeg"></li>
 <li>Halaman Register :<img src="/public/images/hasil/register.jpeg"></li>
 <li>Halaman Dashboard (Admin) :<img src="/public/images/hasil/Dashboard(admin).jpeg"></li>
@@ -62,5 +63,5 @@
 <li></li>
 <li></li>
 
-</ol>
+</ul>
 

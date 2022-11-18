@@ -38,8 +38,7 @@
 
     <div class="col-lg-auto">
         <div class="card mb-4">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            </div>
+
             <div class="table-responsive p-3">
                 <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                     <thead class="thead-light">

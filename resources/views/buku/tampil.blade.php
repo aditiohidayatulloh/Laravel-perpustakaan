@@ -19,7 +19,7 @@
 
     <form class="navbar-search mb-3" action="/buku" method="GET">
         <div class="input-group">
-            <input type="search" name="search" class="form-control bg-light border-1 small" placeholder="Cari Buku"
+            <input type="search" name="search" class="form-control bg-light border-1 small" placeholder="Cari Judul Buku"
                 aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">
@@ -70,10 +70,10 @@
 
                             @if (Auth::user()->isAdmin == 0)
                                 <div class="button-area">
-                                    <a href="/buku/{{ $item->id }}" class="btn btn-info px-3 py-2"
-                                        style="text-decoration:none;">Detail</a>
-                                    <a href="#" class="btn btn-danger px-3 py-2" style="text-decoration:none;">Pinjam
-                                        Buku</a>
+                                    <button class="btn-sm btn-info px-2"> <a href="/buku/{{ $item->id }}"
+                                    style="text-decoration: none; color:white;">Detail</a></button>
+                                    <button class="btn-sm btn-danger px-4"><a a href="/peminjaman/create"
+                                    style="text-decoration: none; color:white;">Pinjam Buku</a></button>
                                 </div>
                             @endif
 
@@ -104,6 +104,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             </form>
                         </div>
                     </div>

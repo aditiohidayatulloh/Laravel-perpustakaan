@@ -112,7 +112,6 @@ class BukuController extends Controller
         $buku = Buku::find($id);
         $iduser = Auth::id();
         $profile = Profile::where('users_id', $iduser)->first();
-
         return view('buku.detail', ['buku' => $buku, 'profile' => $profile]);
     }
 

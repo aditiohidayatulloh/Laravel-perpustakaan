@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Symfony\Component\HttpFoundation\File\File;
-use Illuminate\Support\Facades\Hash;
 
 class AnggotaController extends Controller
 {
@@ -97,7 +98,8 @@ class AnggotaController extends Controller
     {
         $user = User::find($id);
         $profile = Profile::where('users_id',$id)->first();
-        return view('anggota.detail',['user'=>$user,'profile'=>$profile]);
+        $pinjamanUser = Peminjaman::where('users_id',$user->id)->get();
+        return view('anggota.detail',['user'=>$user,'profile'=>$profile,'pinjamanUser'=>$pinjamanUser]);
     }
 
     /**

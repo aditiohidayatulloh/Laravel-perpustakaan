@@ -75,14 +75,15 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjam"
                 aria-expanded="true" aria-controls="collapsePeminjam">
                 <i class="fa-solid fa-user-pen"></i>
-                <span>Peminjam</span>
+                <span>Peminjaman</span>
             </a>
             <div id="collapsePeminjam" class="collapse" aria-labelledby="headingPeminjam"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Tables</h6>
-                    <a class="collapse-item" href="simple-tables.html">Lihat User</a>
-                    <a class="collapse-item" href="datatables.html">Tambah User</a>
+                    <h6 class="collapse-header">Peminjaman</h6>
+                    <a class="collapse-item" href="/peminjaman">Riwayat Peminjaman</a>
+                    <a class="collapse-item" href="/peminjaman/create">Tambahkan Peminjaman</a>
+                    <a class="collapse-item" href="datatables.html">Kembalikan Buku</a>
                 </div>
             </div>
         </li>
@@ -99,7 +100,8 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pinjam Buku</h6>
-                    <a class="collapse-item" href="simple-tables.html">Pinjam Buku</a>
+                    <a class="collapse-item" href="/peminjaman/create">Pinjam Buku</a>
+                    <a class="collapse-item" href="/peminjaman">Pinjaman Saya</a>
                     <a class="collapse-item" href="datatables.html">Kembalikan Buku</a>
                 </div>
             </div>
