@@ -19,7 +19,7 @@
 
 # Fitur Requirements :
 <ol>
-<li>Ada 2 jenis user yaitu Admin dan Anggota</li>
+<li>Ada 2 jenis Anggota yaitu Admin dan Anggota</li>
 <li>Setiap User Harus Melakukan Login Untuk Dapat Mengakses Website</li>
 <li>user harus terdaftar sebagai anggota untuk meminjam buku</li>
 <li>Satu user hanya dapat memiliki satu profile</li>
@@ -28,10 +28,11 @@
 <li>Judul buku dapat berjumlah lebih dari 1 (dapat dibedakan melalui kode buku)</li>
 <li>Bisa melakukan pencaharian buku melalui judul buku</li>
 <li>Admin bisa menambah,mengupdate,dan menghapus: data buku,kategori dan user</li>
-<li>Anggota dapat meminjam maksimal 3 buku</li>
+<li>Setiap Anggota hanya dapat meminjam maksimal 3 buku</li>
 <li>Peminjaman maksimal 7 hari. Jika peminjaman lebih dari 7 hari maka akan dikenakan denda</li>
-<li>Admin dapat melihat list buku yang dipinjam</li>
-<li>Admin dapat melihat log peminjaman buku</li>
+<li>Hanya Admin yang dapat melakukan pengembalian buku, jadi setiap anggota harus menghubungi admin jika ingin mengembalikan buku.</li>
+<li>Admin dapat melihat list buku yang dipinjam, sedangkan Anggota hanya dapat melihat list buku yang dipinjam olehnya</li>
+<li>Admin dapat melihat dan mencetak riwayat peminjaman buku, sedangkan Anggota hanya dapat melihat list buku yang dipinjam olehnya</li>
 </ol>
 
 # ERD Sistem Informasi Perpustakaan :
