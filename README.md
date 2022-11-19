@@ -20,7 +20,7 @@
 # Fitur Requirements :
 <ol>
 <li>Ada 2 jenis Anggota yaitu Admin dan Anggota</li>
-<li>Setiap User Harus Melakukan Login Untuk Dapat Mengakses Website</li>
+<li>Setiap User Harus Melakukan Login Untuk Dapat Mengakses Web</li>
 <li>user harus terdaftar sebagai anggota untuk meminjam buku</li>
 <li>Satu user hanya dapat memiliki satu profile</li>
 <li>setiap user dapat mengubah profilenya masing"</li>
@@ -39,6 +39,7 @@
 <img src="/public/img/erd.png">
 
 # Link Youtube : 
+https://youtu.be/DrCNV7E-eKc
 
 </ul>
 

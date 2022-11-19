@@ -130,7 +130,7 @@ class KategoriController extends Controller
 
         $kategori->delete();
 
-
+        Alert::success('Berhasil', 'Berhasil Menghapus Kategori');
         return redirect('kategori');
     }
 }

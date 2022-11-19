@@ -198,7 +198,7 @@ class BukuController extends Controller
 
         $buku->delete();
 
-        return redirect('buku');
         Alert::success('Berhasil', 'Buku Berhasil Terhapus');
+        return redirect('buku');
     }
 }
