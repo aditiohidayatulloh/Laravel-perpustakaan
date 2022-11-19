@@ -14,7 +14,7 @@
 <li>realrashid/sweet-alert</li>
 <li>Template Ruang Admin</li>
 <li>Select2 untuk multiple select</li>
-<li>TinyMCE 5</li>
+<li>DomPDF</li>
 </ul>
 
 # Fitur Requirements :
@@ -37,31 +37,7 @@
 # ERD Sistem Informasi Perpustakaan :
 <img src="/public/img/erd.png">
 
-# Hasil :
-<ul>
-<li>Halaman Login :<img src="/public/images/hasil/Login.jpeg"></li>
-<li>Halaman Register :<img src="/public/images/hasil/register.jpeg"></li>
-<li>Halaman Dashboard (Admin) :<img src="/public/images/hasil/Dashboard(admin).jpeg"></li>
-<li>Halaman Lihat Buku (Admin) :
-<img src="/public/images/hasil/LihatBuku(admin).jpeg">
-<img src="/public/images/hasil/Dashboard(admin)2.jpeg">
-<img src="/public/images/hasil/Dashboard(admin)3.jpeg">
-</li>
-<li>Halaman Tambah Buku (Admin)
-<img src="/public/images/hasil/tambahbuku1.jpeg">
-<img src="/public/images/hasil/tambahbuku2.jpeg">
-</li>
-<li>Halaman Edit Buku (Admin)
-<img src="/public/images/hasil/editbuku1.jpeg">
-<img src="/public/images/hasil/editbuku2.jpeg">
-</li>
-<li>Hapus Buku (Admin) : <img src="/public/images/hasil/Hapus Buku.jpeg"></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+# Link Youtube : 
 
 </ul>
 

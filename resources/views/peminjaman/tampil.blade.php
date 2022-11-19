@@ -34,7 +34,10 @@
 
 @section('content')
     @if (Auth::user()->isAdmin == 1)
-    <a href="/peminjaman/create" class="btn btn-info mb-3">Tambah Pinjaman</a>
+    <div class="container">
+        <a href="/peminjaman/create" class="btn btn-info mb-3 "><i class="fa-solid fa-plus"></i> tambah</a>
+        <a href="/cetaklaporan" class="btn btn-info mb-3 mx-2"><i class="fa-solid fa-print"></i> Cetak</a>
+    </div>
     <div class="col-lg-auto">
         <div class="card mb-4">
             <div class="table-responsive p-3">
@@ -77,7 +80,7 @@
             <div class="table-responsive p-3">
                 <table class="table align-items-center justify-content-center table-flush table-hover" id="dataTableHover" style="font-size: .7rem">
                     <thead class="thead-light">
-                        <tr>
+                        <tr class="">
                             <th scope="col">No.</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Judul Buku</th>
@@ -90,7 +93,7 @@
                     <tbody>
                         @forelse ($pinjamanUser as $item )
                         <tr>
-                            <th scope="row">{{ $loop->iteration }}</th>
+                            <th>{{ $loop->iteration }}</th>
                             <td>{{ $item->user->name }}</td>
                             <td>{{ $item->buku->judul }}</td>
                             <td>{{ $item->buku->kode_buku }}</td>

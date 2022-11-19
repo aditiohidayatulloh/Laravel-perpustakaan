@@ -9,7 +9,7 @@
 @endsection
 
 @section('judul')
-    <h1 class="text-primary">Form Pinjam Buku</h1>
+    <h1 class="text-primary">Form Pengembalian Buku</h1>
 @endsection
 
 @section('content')
@@ -17,11 +17,10 @@
 
         <div class="card-body">
 
-            <form action="/peminjaman" method="POST">
+            <form action="/pengembalian" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="nama" class="text-primary font-weight-bold">Nama Peminjam</label>
-                    @if(Auth::user()->isAdmin == 1)
                     <select name="users_id" id="" class="form-control">
                         <option value=""></option>
                         @forelse ($peminjam as $item)
@@ -30,21 +29,7 @@
                                 tidak ada user
                             @endforelse
                     </select>
-                    @endif
-
-                    @if(Auth::user()->isAdmin == 0)
-                    <select name="users_id" id="" class="form-control">
-                        <option value="{{ $peminjam->users_id }}">{{ $peminjam->user->name }} ( {{ $peminjam->npm }} )</option>
-                    </select>
-                    @endif
-
-                    @error('users_id')
-                        <div class="alert alert-danger mt-3">{{ $message }}</div>
-                    @enderror
-                </div>
-
-
-                <div class="fom-group">
+                    <div class="fom-group">
                     <label for="buku" class="text-primary font-weight-bold">Buku yang akan dipinjam</label>
                     <select name="buku_id" id="" class="form-control">
                         <option value=""></option>

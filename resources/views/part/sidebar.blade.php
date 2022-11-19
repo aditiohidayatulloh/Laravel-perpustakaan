@@ -83,7 +83,7 @@
                     <h6 class="collapse-header">Peminjaman</h6>
                     <a class="collapse-item" href="/peminjaman">Riwayat Peminjaman</a>
                     <a class="collapse-item" href="/peminjaman/create">Tambahkan Peminjaman</a>
-                    <a class="collapse-item" href="datatables.html">Kembalikan Buku</a>
+                    <a class="collapse-item" href="/pengembalian">Kembalikan Buku</a>
                 </div>
             </div>
         </li>
@@ -102,7 +102,6 @@
                     <h6 class="collapse-header">Pinjam Buku</h6>
                     <a class="collapse-item" href="/peminjaman/create">Pinjam Buku</a>
                     <a class="collapse-item" href="/peminjaman">Pinjaman Saya</a>
-                    <a class="collapse-item" href="datatables.html">Kembalikan Buku</a>
                 </div>
             </div>
         </li>

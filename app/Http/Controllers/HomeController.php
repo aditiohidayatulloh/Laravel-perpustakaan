@@ -37,7 +37,7 @@ class HomeController extends Controller
         $user = User::where('isAdmin','0')->count();
         $riwayat_pinjam = Peminjaman::with(['user','buku'])->orderBy('updated_at','desc')->get();
         $jumlah_riwayat = Peminjaman::count();
-        $pinjamanUser = Peminjaman::where('users_id',$iduser)->count();
+        $pinjamanUser = Peminjaman::where('users_id',$iduser)->where('tanggal_pengembalian',null)->count();
 
         if(Auth::user()->isAdmin==1) {
             return view('AdminDashboard',compact('kategori','buku','user','profile','riwayat_pinjam','jumlah_riwayat'));

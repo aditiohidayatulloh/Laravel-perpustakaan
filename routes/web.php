@@ -8,6 +8,8 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CetakLaporanController;
+use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\RiwayatPinjamController;
 
 /*
@@ -39,5 +41,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('profile', ProfileController::class)->only('index','update','edit');
 
     Route::resource('peminjaman', RiwayatPinjamController::class);
+
+    Route::get('/cetaklaporan', CetakLaporanController::class);
+
+    Route::get('/pengembalian', [PengembalianController::class,'index']);
+
+    Route::post('/pengembalian', [PengembalianController::class,'pengembalian']);
 
 });
